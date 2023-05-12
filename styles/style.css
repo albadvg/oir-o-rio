@@ -1,0 +1,338 @@
+/*VARIABLES*/
+:root{
+    --azulClaro: rgba(2, 215, 215, 0.707);
+    --azulMedio: rgba(21, 72, 148, 0.529);
+    --marron: rgba(239, 159, 134, 0.53);
+}
+
+/*AXUSTES BÁSICOS*/
+body{
+    position: relative;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+    overflow-x: hidden;
+}
+a{
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 300;
+}
+h1{
+    display: none;
+}
+h2{
+    display: none; 
+}
+p{
+    margin: 0;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.4;
+}
+ul{
+    padding-left: 0;
+    font-size: 20px;
+    font-weight: 300;
+}
+.sec-somos ul{
+    margin-bottom: 0;
+}
+#sec-axenda ul{
+    padding-left: 20px;
+}
+li{
+    line-height: 2;
+    list-style-type: none;
+    background-repeat: no-repeat; 
+    padding-left: 44px;
+    background-size: 20px;
+}
+#sec-somos li{
+    background-image: url(../img/Cruz.svg);
+    background-position: left 12px;
+}
+#sec-axenda li{
+    background-image: url(../img/bullet.svg);
+    background-size: 12px;
+    background-position: left 18px;
+}
+details,
+select,
+input[type="submit"]{
+    cursor: pointer;
+}
+summary::before{
+    content: url(../img/plus.svg);
+    width: 1.2rem;
+    position: absolute;
+    top: 9px;
+    left: 13px;
+}
+details[open] summary::before{
+    content: url(../img/menos.svg);
+    top: 0;
+}
+
+.contenedor-details{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+details{
+    width: 100%;
+    overflow: hidden;
+}
+summary{
+    position: relative;
+    display: inline-block;
+    font-size: 24px;
+    background-color: #ffffff17;
+    padding: 7px;
+    padding-left: 45px;
+    width: 100%;
+}
+
+
+/***********CHICHA**********/
+
+body{
+    background-image: url(../img/bosque-contraste.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: 10%; 
+}
+
+/****HEADER****/
+header{
+    display: flex;
+    justify-content: center;
+    padding: 30px 0 50px 0;
+}
+#logo{
+    width: 280px;
+    z-index: 1;
+}
+@media screen and (min-width: 900px){
+    header{
+        justify-content: flex-start;
+        padding: 40px 0 60px 200px;
+    }
+    #logo{
+        width: 400px;
+    }
+}
+
+/****BASE SECCIÓNS****/
+section{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 120px;
+    padding: 0 6vw;
+    background-image: linear-gradient( #000000c2 0%, #00000087 40%);
+}
+@media  screen and (min-width:900px) {
+    section{
+        margin-bottom: 250px;
+    }
+}
+
+/*posición seccións en ordenador*/
+@media screen and (min-width: 900px) {
+    #sec-somos{
+        position: absolute;
+        margin-top: calc(var(--alto-sec-somos) * -1 - 250px);
+        padding: 0 0 0 33vw;
+        width: 100%;
+        z-index: -1;
+    }
+    #sec-axenda{
+        padding: 0 0 0 18vw;
+        margin-top: calc(var(--alto-sec-somos) + 250px);
+        justify-content: flex-start;
+    }
+    #sec-estatutos{
+        justify-content: flex-start;
+    }
+    #sec-galeria{
+        margin-bottom: 0;
+    }
+}
+
+/*wrapper contido seccións*/
+
+.contido-seccion{
+    position: relative;
+    padding: 180px 45px 75px 45px;
+    max-width: 650px;
+}
+
+#sec-galeria .contido-seccion{
+    max-width: unset;
+}
+
+/*contido seccións*/
+
+.titulo-seccion{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 95px 45px;
+}
+.titulo-img{
+    height: 33px;
+}
+
+#sec-galeria .titulo-img{
+    height: 66px;
+}
+@media screen and (min-width: 500px) {
+    #sec-somos .titulo-seccion,
+    #sec-axenda .titulo-seccion,
+    #sec-estatutos .titulo-seccion{
+        justify-content: flex-start;
+    }
+    .titulo-img{
+        height: 38px;
+    }
+    #sec-galeria .titulo-img{
+        height: 75px;
+    }
+}
+
+/*fondos rio*/
+.rio{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.rio-ordenador{
+    display: none;
+}
+#rio-mobil{
+    height: 100%;
+    width: auto;
+}
+@media screen and (min-width: 900px){
+    #rio-mobil{
+        display: none;
+    }
+    .rio-ordenador{
+        display: block;
+        height: 100%;
+        width: auto;
+    }
+    #sec-estatutos .rio{
+        top: -450px;
+    }
+    footer .rio{
+        bottom: 0;
+        top: unset;
+    }
+}
+
+
+/*AXENDA*/
+
+
+
+
+/*PARTICIPA*/
+form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    
+}
+.form-item{
+    width: 100%;
+    min-height: 40px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.919);
+    transition: transform .5s ease;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.form-item:focus{
+    transform: scale(1.01);
+}
+select{
+    color: gray;
+}
+
+input[type="submit"] {
+    background-color: rgba(255, 235, 161, 0.38);
+    color: white;
+    padding: 15px!important;
+    font-weight: 400;
+}
+input[type="submit"]:hover{
+    background-color: rgba(255, 235, 161, 0.518);   
+    transform: scale(1.01);
+
+}
+textarea{
+    height: 150px;
+}
+@media screen and (max-width: 900px){
+    .form-item{
+        width: 68vw;
+    }
+}
+
+/*ESTATUTOS*/
+#sec-estatutos summary{
+    width: 95%;
+}
+.enlace-estatutos{
+    margin-top: 40px;
+}
+.link-externo{
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 0 -4px 10px;
+}
+
+/*GALERÍA*/
+.galeria{
+    display: flex;
+    padding: 30px 0;
+}
+.imaxe{
+    height: 250px;
+    width: 350px;
+    margin: 20px;
+    background-color: rgb(128, 128, 128);
+}
+
+/****FOOTER****/
+footer{
+    padding: 50px 100px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    height: 300px;
+}
+.footer-logo{
+    height: 100px;
+}
+@media screen and (max-width: 900px) {
+    footer{
+        padding: 50px 0;
+        justify-content: center;
+    }
+    .footer-logo{
+        height: auto;
+        width: 70vw;
+    }
+}
