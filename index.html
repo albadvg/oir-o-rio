@@ -11,11 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css"> <!--carrusel galería-->
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <header>
-        <h1>Oír un río</h1>
+        <h1>Oír un río</h1>v
         <img src="img/fondo-mobil.png" alt="" class="rio" id="rio-mobil">
         <img src="img/rio6.png" alt=""class="rio rio-ordenador">
         <!-- <img src="img/seccion1.png" alt="" class="rio rio-ordenador"> -->
@@ -24,6 +25,7 @@
     <main>
 
         <section id="sec-somos">
+            <div class="fondo-seccion fondo-somos"></div>
             <div class="contido-seccion">
                 <div class="titulo-seccion">
                     <img src="img/que somos.svg" alt="" class="titulo-img">
@@ -42,7 +44,7 @@
         </section>
 
         <section id="sec-axenda">
-            <!-- <img src="img/seccion2.png" alt="" class="rio rio-ordenador"> -->
+            <div class="fondo-seccion fondo-axenda"></div>
             <div class="contido-seccion">
                 <div class="titulo-seccion">
                     <img src="img/axenda.svg" alt="" class="titulo-img">
@@ -91,12 +93,13 @@
         </section>
 
         <section id="sec-participa">
+            <div class="fondo-seccion fondo-participa"></div>
             <div class="contido-seccion">
                 <div class="titulo-seccion">
                     <img src="img/participa.svg" alt="" class="titulo-img">
                     <h2>PARTICIPA</h2>
                 </div>
-                <p>contacta con nós para apuntarte ás actividades, facer propostas ou consultar calquera dúbida</p>
+                <p class="texto-centrado">contacta con nós para apuntarte ás actividades, facer propostas ou consultar calquera dúbida</p>
                 <form action="">
                     <input type="text" placeholder="Nome" class="form-item">
                     <select name="asunto" id="asunto" class="form-item">
@@ -113,7 +116,7 @@
         </section>
 
         <section id="sec-estatutos">
-            <!-- <img src="img/footer.png" alt="" class="rio rio-ordenador"> -->
+            <div class="fondo-seccion fondo-estatutos"></div>
             <div class="contido-seccion">
                 <div class="titulo-seccion">
                     <img src="img/estatutos.svg" alt="" class="titulo-img">
@@ -168,15 +171,17 @@
         </section>
 
         <section id="sec-galeria">
+            <div class="fondo-seccion fondo-galeria"></div>
             <div class="contido-seccion">
                 <div class="titulo-seccion">
                     <img src="img/galeria.svg" alt="" class="titulo-img"> 
                     <h2>GALERÍA</h2>
                 </div>
-                <div class="galeria">
-                    <div class="imaxe"></div>
-                    <div class="imaxe"></div>
-                    <div class="imaxe"></div>
+                <div class="main-carousel">
+                    <img src="img/foto-rio1.jpg" alt="" class="carousel-cell imaxe">
+                    <img src="img/foto-bosque.jpg" alt="" class="carousel-cell imaxe">
+                    <img src="img/foto-rio2.jpg" alt="" class="carousel-cell imaxe">
+                    <img src="img/merlo.jpg" alt="" class="carousel-cell imaxe">
                 </div>
             </div>      
         </section>
@@ -184,21 +189,35 @@
     <footer>
         <img src="img/logo.svg" alt="" class="footer-logo">
     </footer>
-    
-    <script>
-        let root = document.documentElement; //pra meter variable de css
-        let secSomos = document.getElementById('sec-somos');
-        let altoSecSomos = secSomos.offsetHeight;
 
-        root.style.setProperty('--alto-sec-somos', altoSecSomos + 'px');
-    </script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script> <!--carrusel galería-->
     <script>
-        let details = document.querySelectorAll('details');
+        //inicializar plugin carrusel
+        let carrusel = document.querySelector('.main-carousel');
+        let flickity = new Flickity( carrusel, {
+            cellAlign: 'center',
+            contain: true,
+            wrapAround: true
+        })
 
-        details.forEach(detail => {
+        let detailsAxenda = document.querySelectorAll('#sec-axenda details');
+        let detailsEstatutos = document.querySelectorAll('#sec-estatutos details');
+
+        detailsAxenda.forEach(detail => {
             detail.addEventListener('toggle', (e) => {
                 if(detail.open) {
-                    details.forEach( detail => {
+                    detailsAxenda.forEach( detail => {
+                        if(detail != e.target && detail.open) {
+                            detail.open = false;
+                        };
+                    });
+                };
+            });
+        });
+        detailsEstatutos.forEach(detail => {
+            detail.addEventListener('toggle', (e) => {
+                if(detail.open) {
+                    detailsEstatutos.forEach( detail => {
                         if(detail != e.target && detail.open) {
                             detail.open = false;
                         };

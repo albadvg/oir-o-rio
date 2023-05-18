@@ -5,7 +5,14 @@
     --marron: rgba(239, 159, 134, 0.53);
 }
 
+/*UTILIDADES*/
+.texto-centrado{
+    text-align: center;
+}
 /*AXUSTES BÁSICOS*/
+html{
+    overflow-x: hidden;
+}
 body{
     position: relative;
     font-family: 'Source Sans Pro', sans-serif;
@@ -46,17 +53,18 @@ li{
     line-height: 2;
     list-style-type: none;
     background-repeat: no-repeat; 
-    padding-left: 44px;
     background-size: 20px;
 }
 #sec-somos li{
     background-image: url(../img/Cruz.svg);
     background-position: left 12px;
+    padding-left: 44px;
 }
 #sec-axenda li{
     background-image: url(../img/bullet.svg);
     background-size: 12px;
     background-position: left 18px;
+    padding-left: 44px;
 }
 details,
 select,
@@ -82,7 +90,6 @@ details[open] summary::before{
 }
 details{
     width: 100%;
-    overflow: hidden;
 }
 summary{
     position: relative;
@@ -127,30 +134,34 @@ header{
 /****BASE SECCIÓNS****/
 section{
     position: relative;
-    display: flex;
     justify-content: center;
     margin-bottom: 120px;
-    padding: 0 6vw;
-    background-image: linear-gradient( #000000c2 0%, #00000087 40%);
+}
+section:not(#sec-galeria){
+    display: flex;
 }
 @media  screen and (min-width:900px) {
     section{
         margin-bottom: 250px;
     }
 }
-
+.fondo-seccion{
+    background-color: rgba(5, 5, 5, 0.6);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+.fondo-somos,
+.fondo-estatutos{
+    z-index: -1;
+}
 /*posición seccións en ordenador*/
 @media screen and (min-width: 900px) {
     #sec-somos{
-        position: absolute;
-        margin-top: calc(var(--alto-sec-somos) * -1 - 250px);
-        padding: 0 0 0 33vw;
+        justify-content: flex-end;
         width: 100%;
-        z-index: -1;
     }
     #sec-axenda{
-        padding: 0 0 0 18vw;
-        margin-top: calc(var(--alto-sec-somos) + 250px);
         justify-content: flex-start;
     }
     #sec-estatutos{
@@ -165,13 +176,16 @@ section{
 
 .contido-seccion{
     position: relative;
-    padding: 180px 45px 75px 45px;
-    max-width: 650px;
+    padding: 180px 150px 75px 150px;
+    max-width: 900px;
 }
-
+#sec-axenda .contido-seccion{
+   margin-left: 200px;
+}
 #sec-galeria .contido-seccion{
     max-width: unset;
 }
+
 
 /*contido seccións*/
 
@@ -182,14 +196,16 @@ section{
     display: flex;
     justify-content: center;
     width: 100%;
-    padding: 95px 45px;
+    padding: 95px 150px;
 }
 .titulo-img{
     height: 33px;
 }
-
+#sec-galeria .titulo-seccion{
+    padding: 80px;
+}
 #sec-galeria .titulo-img{
-    height: 66px;
+    height: 60px;
 }
 @media screen and (min-width: 500px) {
     #sec-somos .titulo-seccion,
@@ -201,7 +217,7 @@ section{
         height: 38px;
     }
     #sec-galeria .titulo-img{
-        height: 75px;
+        height: 70px;
     }
 }
 
@@ -303,28 +319,38 @@ textarea{
 }
 
 /*GALERÍA*/
-.galeria{
-    display: flex;
-    padding: 30px 0;
+.main-carousel{
+    margin-top: 30px;
 }
-.imaxe{
+.carousel-cell{
     height: 250px;
     width: 350px;
-    margin: 20px;
-    background-color: rgb(128, 128, 128);
+    margin: 10px;
+    opacity: .7;
+    transition: opacity .5s ease;
 }
-
+.flickity-button-icon {
+    fill: rgb(42, 42, 42);
+  }
+.carousel-cell:hover{
+    opacity: 1;
+}
+.flickity-prev-next-button.previous {
+    left: -80px;
+  }
+  .flickity-prev-next-button.next {
+    right: -80px;
+  }
 /****FOOTER****/
 footer{
-    padding: 50px 100px;
+    padding: 50px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     position: relative;
-    height: 300px;
 }
 .footer-logo{
-    height: 100px;
+    height: 70px;
 }
 @media screen and (max-width: 900px) {
     footer{
