@@ -82,6 +82,9 @@ details[open] summary::before{
     content: url(../img/menos.svg);
     top: 0;
 }
+summary::marker{
+    content: '';
+}
 
 .contenedor-details{
     display: flex;
@@ -93,12 +96,12 @@ details{
 }
 summary{
     position: relative;
-    display: inline-block;
+    /* display: inline-block; */
     font-size: 24px;
     background-color: #ffffff17;
     padding: 7px;
     padding-left: 45px;
-    width: 100%;
+    /* width: 100%; */
 }
 
 
@@ -110,7 +113,19 @@ body{
     background-repeat: no-repeat;
     background-position-x: 10%; 
 }
-
+.fondo-mobil{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url(../img/fondo-mobil.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@media screen and (min-width: 900px) {
+    .fondo-mobil{
+        display: none;
+    }
+}
 /****HEADER****/
 header{
     display: flex;
@@ -135,26 +150,25 @@ header{
 section{
     position: relative;
     justify-content: center;
-    margin-bottom: 120px;
 }
 section:not(#sec-galeria){
     display: flex;
+    margin-bottom: 120px;
 }
-@media  screen and (min-width:900px) {
-    section{
-        margin-bottom: 250px;
-    }
-}
+
 .fondo-seccion{
     background-color: rgba(5, 5, 5, 0.6);
     height: 100%;
     width: 100%;
     position: absolute;
 }
-.fondo-somos,
-.fondo-estatutos{
-    z-index: -1;
+@media  screen and (min-width:1300px) {
+    .fondo-somos,
+    .fondo-estatutos{
+        z-index: -1;
+    }
 }
+
 /*posición seccións en ordenador*/
 @media screen and (min-width: 900px) {
     #sec-somos{
@@ -170,22 +184,32 @@ section:not(#sec-galeria){
     #sec-galeria{
         margin-bottom: 0;
     }
+    
 }
 
 /*wrapper contido seccións*/
 
 .contido-seccion{
     position: relative;
-    padding: 180px 150px 75px 150px;
-    max-width: 900px;
-}
-#sec-axenda .contido-seccion{
-   margin-left: 200px;
-}
-#sec-galeria .contido-seccion{
-    max-width: unset;
+    padding: 180px 8vw 75px 8vw;
 }
 
+#sec-galeria .contido-seccion{
+    padding-bottom: 145px;
+}
+@media screen and (min-width: 900px) {
+    .contido-seccion{
+        max-width: 900px;   
+        padding: 180px 150px 75px 150px;
+    }
+    #sec-axenda .contido-seccion{
+        margin-left: 200px;
+     }
+    #sec-galeria .contido-seccion{
+        padding-bottom: 75px;
+        max-width: unset;
+    }
+}
 
 /*contido seccións*/
 
@@ -205,9 +229,9 @@ section:not(#sec-galeria){
     padding: 80px;
 }
 #sec-galeria .titulo-img{
-    height: 60px;
+    height: 55px;
 }
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 900px) {
     #sec-somos .titulo-seccion,
     #sec-axenda .titulo-seccion,
     #sec-estatutos .titulo-seccion{
@@ -299,16 +323,9 @@ input[type="submit"]:hover{
 textarea{
     height: 150px;
 }
-@media screen and (max-width: 900px){
-    .form-item{
-        width: 68vw;
-    }
-}
 
 /*ESTATUTOS*/
-#sec-estatutos summary{
-    width: 95%;
-}
+
 .enlace-estatutos{
     margin-top: 40px;
 }
@@ -331,16 +348,35 @@ textarea{
 }
 .flickity-button-icon {
     fill: rgb(42, 42, 42);
-  }
+}
 .carousel-cell:hover{
     opacity: 1;
 }
 .flickity-prev-next-button.previous {
-    left: -80px;
+    width: 30px;
+    height: 30px;
+    top: 130%;
+    left: 30vw;
   }
-  .flickity-prev-next-button.next {
-    right: -80px;
-  }
+.flickity-prev-next-button.next {
+    width: 30px;
+    height: 30px;
+    top: 130%;
+    right: 30vw;
+}
+.flickity-page-dots .dot{
+    background: #b2b2b2;
+}
+@media screen and (min-width: 900px) {
+    .flickity-prev-next-button.previous {
+        top: 50%;
+        left: -80px;
+      }
+    .flickity-prev-next-button.next {
+        top: 50%;
+        right: -80px;
+    }
+}
 /****FOOTER****/
 footer{
     padding: 50px;
