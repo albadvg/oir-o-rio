@@ -15,10 +15,10 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <div class="fondo-mobil"></div>
+    <div id="rio-mobil"></div>
     <header>
-        <h1>Oír un río</h1>v
-        <img src="img/rio6.png" alt=""class="rio rio-ordenador">
+        <h1>Oír un río</h1>
+        <img src="img/rio-ordenador.png" alt="" id="rio-ordenador">
         <img src="img/logo.svg" alt="" id="logo">
     </header>
     <main>
@@ -27,7 +27,7 @@
             <div class="fondo-seccion fondo-somos"></div>
             <div class="contido-seccion">
                 <div class="titulo-seccion">
-                    <img src="img/que somos.svg" alt="" class="titulo-img">
+                    <img src="img/titulo-que somos.svg" alt="" class="titulo-img">
                     <h2>QUÉ SOMOS</h2>
                 </div>
                 <p>Somos unha asociación creada para o coidado do río Carei e o seu entorno. Vivimos canda o río, ulimos o seu olor, oímo-la súas augas, que regan as terras polas que camiñamos sabémonos deudoras desta riqueza. Sabemos que merece a pena coñecer este ecosistema fértil que se extende pola comarca e protexelo das ameazas medioambientais. Para iso desenvolvemos un traballo que se engloba principalmente nas seguintes áreas: 
@@ -46,7 +46,7 @@
             <div class="fondo-seccion fondo-axenda"></div>
             <div class="contido-seccion">
                 <div class="titulo-seccion">
-                    <img src="img/axenda.svg" alt="" class="titulo-img">
+                    <img src="img/titulo-axenda.svg" alt="" class="titulo-img">
                     <h2>AXENDA</h2>
                 </div>
                 
@@ -95,7 +95,7 @@
             <div class="fondo-seccion fondo-participa"></div>
             <div class="contido-seccion">
                 <div class="titulo-seccion">
-                    <img src="img/participa.svg" alt="" class="titulo-img">
+                    <img src="img/titulo-participa.svg" alt="" class="titulo-img">
                     <h2>PARTICIPA</h2>
                 </div>
                 <p class="texto-centrado">contacta con nós para apuntarte ás actividades, facer propostas ou consultar calquera dúbida</p>
@@ -118,7 +118,7 @@
             <div class="fondo-seccion fondo-estatutos"></div>
             <div class="contido-seccion">
                 <div class="titulo-seccion">
-                    <img src="img/estatutos.svg" alt="" class="titulo-img">
+                    <img src="img/titulo-estatutos.svg" alt="" class="titulo-img">
                     <h2>ESTATUTOS</h2>
                 </div>
                 <div class="contenedor-details">
@@ -167,16 +167,16 @@
             <div class="fondo-seccion fondo-galeria"></div>
             <div class="contido-seccion">
                 <div class="titulo-seccion">
-                    <img src="img/galeria.svg" alt="" class="titulo-img"> 
+                    <img src="img/titulo-galeria.svg" alt="" class="titulo-img"> 
                     <h2>GALERÍA</h2>
                 </div>
                 <div class="main-carousel">
-                    <img src="img/foto-rio1.jpg" alt="" class="carousel-cell imaxe">
-                    <img src="img/foto-rio.jpg" alt="" class="carousel-cell imaxe">
-                    <img src="img/foto-bosque.jpg" alt="" class="carousel-cell imaxe">
-                    <img src="img/foto-rio2.jpg" alt="" class="carousel-cell imaxe">
-                    <img src="img/merlo.jpg" alt="" class="carousel-cell imaxe">
-                    <img src="img/foto-lique.jpg" alt="" class="carousel-cell imaxe">
+                    <img src="img/galeria-1.jpg" alt="" class="carousel-cell imaxe">
+                    <img src="img/galeria-2.jpg" alt="" class="carousel-cell imaxe">
+                    <img src="img/galeria-3.jpg" alt="" class="carousel-cell imaxe">
+                    <img src="img/galeria-4.jpg" alt="" class="carousel-cell imaxe">
+                    <img src="img/galeria-5.jpg" alt="" class="carousel-cell imaxe">
+                    <img src="img/galeria-6.jpg" alt="" class="carousel-cell imaxe">
                 </div>
             </div>      
         </section>
@@ -186,40 +186,7 @@
     </footer>
 
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script> <!--carrusel galería-->
-    <script>
-        //inicializar plugin carrusel
-        let carrusel = document.querySelector('.main-carousel');
-        let flickity = new Flickity( carrusel, {
-            cellAlign: 'center',
-            contain: true,
-            wrapAround: true
-        })
+    <script src="js/scripts.js"></script>
 
-        let detailsAxenda = document.querySelectorAll('#sec-axenda details');
-        let detailsEstatutos = document.querySelectorAll('#sec-estatutos details');
-
-        detailsAxenda.forEach(detail => {
-            detail.addEventListener('toggle', (e) => {
-                if(detail.open) {
-                    detailsAxenda.forEach( detail => {
-                        if(detail != e.target && detail.open) {
-                            detail.open = false;
-                        };
-                    });
-                };
-            });
-        });
-        detailsEstatutos.forEach(detail => {
-            detail.addEventListener('toggle', (e) => {
-                if(detail.open) {
-                    detailsEstatutos.forEach( detail => {
-                        if(detail != e.target && detail.open) {
-                            detail.open = false;
-                        };
-                    });
-                };
-            });
-        });
-    </script>
 </body>
 </html>

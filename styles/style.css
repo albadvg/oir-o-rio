@@ -1,30 +1,24 @@
-/*VARIABLES*/
-:root{
-    --azulClaro: rgba(2, 215, 215, 0.707);
-    --azulMedio: rgba(21, 72, 148, 0.529);
-    --marron: rgba(239, 159, 134, 0.53);
-}
-
 /*UTILIDADES*/
 .texto-centrado{
     text-align: center;
 }
+
 /*AXUSTES BÁSICOS*/
 html{
     overflow-x: hidden;
 }
 body{
     position: relative;
+    overflow-x: hidden;
     font-family: 'Source Sans Pro', sans-serif;
     color: white;
-    overflow-x: hidden;
 }
 a{
     display: inline-block;
     text-decoration: none;
-    color: white;
     font-size: 20px;
     font-weight: 300;
+    color: white;
 }
 h1{
     display: none;
@@ -34,10 +28,11 @@ h2{
 }
 p{
     margin: 0;
+    line-height: 1.4;
     font-size: 20px;
     font-weight: 300;
-    line-height: 1.4;
 }
+/*listas*/
 ul{
     padding-left: 0;
     font-size: 20px;
@@ -50,10 +45,10 @@ ul{
     padding-left: 20px;
 }
 li{
-    line-height: 2;
     list-style-type: none;
     background-repeat: no-repeat; 
     background-size: 20px;
+    line-height: 2; 
 }
 #sec-somos li{
     background-image: url(../img/Cruz.svg);
@@ -66,6 +61,7 @@ li{
     background-position: left 18px;
     padding-left: 44px;
 }
+
 details,
 select,
 input[type="submit"]{
@@ -96,37 +92,50 @@ details{
 }
 summary{
     position: relative;
-    /* display: inline-block; */
     font-size: 24px;
     background-color: #ffffff17;
     padding: 7px;
     padding-left: 45px;
-    /* width: 100%; */
 }
 
 
-/***********CHICHA**********/
+/*********************CHICHA*********************/
 
 body{
-    background-image: url(../img/bosque-contraste.png);
+    background-image: url(../img/fondo-bosque.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: 10%; 
 }
-.fondo-mobil{
+/*ríos fondo*/
+#rio-mobil{
     position: absolute;
     height: 100%;
     width: 100%;
-    background-image: url(../img/fondo-mobil.png);
+    background-image: url(../img/rio-mobil.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
-@media screen and (min-width: 900px) {
-    .fondo-mobil{
+#rio-ordenador{
+    display: none;
+}
+
+@media screen and (min-width: 900px){
+    #rio-mobil{
         display: none;
     }
+    #rio-ordenador{
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: auto;
+        height: 100%;
+    }
 }
-/****HEADER****/
+
+
+/*///////////////header//////////////////*/
 header{
     display: flex;
     justify-content: center;
@@ -146,7 +155,7 @@ header{
     }
 }
 
-/****BASE SECCIÓNS****/
+/*////////////////base seccións/////////////*/
 section{
     position: relative;
     justify-content: center;
@@ -157,10 +166,10 @@ section:not(#sec-galeria){
 }
 
 .fondo-seccion{
+    position: absolute;
     background-color: rgba(5, 5, 5, 0.6);
     height: 100%;
     width: 100%;
-    position: absolute;
 }
 @media  screen and (min-width:1300px) {
     .fondo-somos,
@@ -181,10 +190,6 @@ section:not(#sec-galeria){
     #sec-estatutos{
         justify-content: flex-start;
     }
-    #sec-galeria{
-        margin-bottom: 0;
-    }
-    
 }
 
 /*wrapper contido seccións*/
@@ -193,7 +198,6 @@ section:not(#sec-galeria){
     position: relative;
     padding: 180px 8vw 75px 8vw;
 }
-
 #sec-galeria .contido-seccion{
     padding-bottom: 145px;
 }
@@ -245,45 +249,7 @@ section:not(#sec-galeria){
     }
 }
 
-/*fondos rio*/
-.rio{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-}
-.rio-ordenador{
-    display: none;
-}
-#rio-mobil{
-    height: 100%;
-    width: auto;
-}
-@media screen and (min-width: 900px){
-    #rio-mobil{
-        display: none;
-    }
-    .rio-ordenador{
-        display: block;
-        height: 100%;
-        width: auto;
-    }
-    #sec-estatutos .rio{
-        top: -450px;
-    }
-    footer .rio{
-        bottom: 0;
-        top: unset;
-    }
-}
-
-
-/*AXENDA*/
-
-
-
-
-/*PARTICIPA*/
+/*////////SECCIÓN PARTICIPA///////////*/
 form{
     display: flex;
     flex-direction: column;
@@ -301,14 +267,12 @@ form{
     font-size: 20px;
     font-weight: 200;
 }
-
 .form-item:focus{
     transform: scale(1.01);
 }
 select{
     color: gray;
 }
-
 input[type="submit"] {
     background-color: rgba(255, 235, 161, 0.38);
     color: white;
@@ -324,7 +288,7 @@ textarea{
     height: 150px;
 }
 
-/*ESTATUTOS*/
+/*////////SECCIÓN-ESTATUTOS//////////*/
 
 .enlace-estatutos{
     margin-top: 40px;
@@ -377,7 +341,8 @@ textarea{
         right: -80px;
     }
 }
-/****FOOTER****/
+
+/*///////////FOOTER////////////*/
 footer{
     padding: 50px;
     display: flex;
